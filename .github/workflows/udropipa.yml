@@ -1,0 +1,7 @@
+- name: Upload IPA to Dropbox
+  run: |
+    curl -X POST https://content.dropboxapi.com/2/files/upload \
+      --header "Authorization: Bearer ${{ secrets.DROPBOX_TOKEN }}" \
+      --header "Dropbox-API-Arg: {\"path\": \"/YourApp.ipa\", \"mode\": \"overwrite\"}" \
+      --header "Content-Type: application/octet-stream" \
+      --data-binary @path/to/YourApp.ipa
